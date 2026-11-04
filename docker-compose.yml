@@ -1,0 +1,24 @@
+name: blufit-dev # nome del progetto
+
+services:
+  db:
+    image: postgres:16-alpine # Tra nome dell'immagine e versione ci vogliono i due punti
+    restart: unless-stopped # Gli altri valori che si possono mettere sono "no", "always", "on-failure"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      TZ: Europe/Rome
+    ports: 
+      - "127.0.0.1:${DB_PORT:-5435}:5432"
+    volumes: 
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 30s
+
+volumes: 
+  pgdata:

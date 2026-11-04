@@ -1,0 +1,24 @@
+# Dipendenze
+node_modules/
+dist/
+build/
+
+# Segreti
+.env
+.env.prod
+!.env.example
+
+# Backups
+backups/
+*.dump
+
+# Eliminare "spazzatura" Python
+__pycache__/
+*.pyc
+
+# Ambiente virtuale .venv/
+.venv/
+
+# File automatici Mac
+.DS_Store
+*.log
