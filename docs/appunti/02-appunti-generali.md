@@ -74,3 +74,13 @@ Dopo aver salvato il file, occorre controllare che Docker Desktop sia attivo e s
 - docker compose up -d
 - docker compose ps
 Il primo comando controlla soltanto che il file sia scritto bene, senza avviare niente. 
+
+## ***Primo git***
+
+Per fare il primo git effettivo occorre fare i seguenti comandi da terminale:
+- git init -b main
+- git status
+- git add .
+- git commit -m "..."
+- git remote add origin "link del profilo github"
+- git push -u origin main
